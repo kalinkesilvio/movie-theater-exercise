@@ -5,7 +5,7 @@ import javax.persistence.*;
 @NamedQueries({
         @NamedQuery(
                 name = "Theater.findByName",
-                query = "select t from MT_THEATER t where t.name like :name"
+                query = "select t from MT_THEATER t where t.name like :NAME"
         )
 })
 @Entity(name = "MT_THEATER")

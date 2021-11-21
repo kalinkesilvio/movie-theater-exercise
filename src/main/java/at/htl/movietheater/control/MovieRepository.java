@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 
 @ApplicationScoped
@@ -15,6 +16,7 @@ public class MovieRepository {
     @Inject
     EntityManager em;
 
+    @Transactional
     public Movie save(Movie movie) {
         return em.merge(movie);
     }

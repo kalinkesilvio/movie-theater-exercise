@@ -4,6 +4,10 @@ import javax.persistence.*;
 
 @NamedQueries({
         @NamedQuery(
+                name = "Show.findById",
+                query = "select s from MT_SHOW s where s.id = :ID"
+        ),
+        @NamedQuery(
                 name = "Show.findLastShow",
                 query = "select s from MT_SHOW s order by s.id desc"
         )
