@@ -1,14 +1,26 @@
 package at.htl.movietheater.entity;
 
+import javax.persistence.*;
+
+@Entity(name = "MT_MOVIE")
 public class Movie {
+
+    @Id
+    @Column(name = "MO_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "MO_TITLE")
     private String title;
 
+    @Column(name = "MO_DURATION")
     private double duration;
 
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "MO_GENRE")
     private Genre genre;
 
+    @Column(name = "MO_AGE_LIMIT")
     private int ageLimit;
 
     public Movie() {
