@@ -7,8 +7,11 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class ShowRepository {
 
+     @Inject
+     EntityManager em;
+
     public Show save(Show show) {
-        return null;
+        return em.merge(show);
     }
 
     /**
