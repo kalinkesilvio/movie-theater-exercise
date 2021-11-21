@@ -1,5 +1,7 @@
 package at.htl.movietheater.entity;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @NamedQueries({
@@ -34,10 +36,12 @@ public class Show {
 
     @ManyToOne
     @JoinColumn(name = "SH_PREV_SHOW")
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     private Show prevShow;
 
     @OneToOne
     @JoinColumn(name = "SH_NEXT_SHOW")
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     private Show nextShow;
 
     public Show() {

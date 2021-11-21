@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 @ApplicationScoped
 public class TheaterRepository {
@@ -23,6 +24,7 @@ public class TheaterRepository {
      * @return the existing theater, when theater.name already exists in db
      * or return the persisted theater, when not found in database
      */
+    @Transactional
     public Theater save(Theater theater) {
         Theater theater1 = this.findByName(theater.getName());
         if (theater1 != null) {
