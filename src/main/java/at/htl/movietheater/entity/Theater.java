@@ -8,11 +8,18 @@ import javax.persistence.*;
                 query = "select t from MT_THEATER t where t.name like :name"
         )
 })
+@Entity(name = "MT_THEATER")
 public class Theater {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TH_ID")
     private Long id;
 
+    @Column(name = "TH_NAME", unique = true)
     private String name;
 
+    @Column(name = "TH_CAPACITY")
     private int capacity;
 
     public Theater() {

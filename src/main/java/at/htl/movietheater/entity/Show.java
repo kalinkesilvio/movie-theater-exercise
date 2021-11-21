@@ -8,16 +8,32 @@ import javax.persistence.*;
                 query = "select s from MT_SHOW s order by s.id desc"
         )
 })
+@SequenceGenerator(
+        name = "showSeq",
+        initialValue = 1000
+)
+@Entity(name = "MT_SHOW")
 public class Show {
 
+    @Id
+    @GeneratedValue(generator = "showSeq")
+    @Column(name = "SH_ID")
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "SH_MOVIE")
     private Movie movie;
 
+    @ManyToOne
+    @JoinColumn(name = "SH_THEATER")
     private Theater theater;
 
+    @ManyToOne
+    @JoinColumn(name = "SH_PREV_SHOW")
     private Show prevShow;
 
+    @OneToOne
+    @JoinColumn(name = "SH_NEXT_SHOW")
     private Show nextShow;
 
     public Show() {
